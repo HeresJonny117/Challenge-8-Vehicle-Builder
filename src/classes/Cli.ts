@@ -7,6 +7,7 @@ import Wheel from "./Wheel.js";
 
 // define the Cli class
 class Cli {
+  [x: string]: any;
   // TODO: update the vehicles property to accept Truck and Motorbike objects as well
   // TODO: You will need to use the Union operator to define additional types for the array
   // TODO: See the AbleToTow interface for an example of how to use the Union operator
@@ -65,7 +66,7 @@ class Cli {
         },
       ])
       .then((answers) => {
-        if (answers.vehicleType === 'Car') {
+        if (answers.vehicleType === 'Car') 
           // create a car
           this.createCar();
         }
@@ -307,10 +308,6 @@ class Cli {
           name: 'action',
           message: 'Select an action',
           // TODO: add options to tow and wheelie
-          if (this.vehicles[i] instanceof Truck) {
-            this.findVehicleToTow(this.vehicles[i]);
-            return;
-          }
           if (this.vehicles[i] instanceof Motorbike) {
             this.vehicles[i].wheelie();
           }
