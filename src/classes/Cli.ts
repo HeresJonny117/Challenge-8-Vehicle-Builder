@@ -62,7 +62,7 @@ class Cli {
           name: 'vehicleType',
           message: 'Select a vehicle type',
           // TODO: Update the choices array to include Truck and Motorbike
-          choices: ['Car'],
+          choices: ['Car', 'Truck', 'Motorbike'],
         },
       ])
       .then((answers) => {
@@ -73,6 +73,7 @@ class Cli {
         // TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
         if (answers.vehicleType === 'Truck') {
           this.createTruck();
+
         } else if (answers.vehicleType === 'Motorbike') {
           this.createMotorbike();
         }    
@@ -126,11 +127,11 @@ class Cli {
           parseInt(answers.topSpeed),
           []
         );
-        // push the car to the vehicles array
+        
         this.vehicles.push(car);
-        // set the selectedVehicleVin to the vin of the car
+        
         this.selectedVehicleVin = car.vin;
-        // perform actions on the car
+        
         this.performActions();
       });
   }
@@ -192,7 +193,9 @@ class Cli {
           parseInt(answers.towingCapacity)
         );
         this.vehicles.push(truck);
+
         this.selectedVehicleVin = truck.vin;
+
         this.performActions();
       });
   }
